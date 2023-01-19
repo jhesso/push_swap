@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.c                                         :+:      :+:    :+:   */
+/*   pushswap.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 19:06:38 by jhesso            #+#    #+#             */
-/*   Updated: 2023/01/19 19:53:58 by jhesso           ###   ########.fr       */
+/*   Created: 2023/01/19 19:06:50 by jhesso            #+#    #+#             */
+/*   Updated: 2023/01/19 19:09:43 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#ifndef PUSHSWAP_H
+# define PUSHSWAP_H
 
-void	print_result(t_list *result)
-{
-	ft_printf("%s\n", result->content);
-}
+# include <unistd.h>
+# include <stdlib.h>
+# include "libft/includes/libft.h"
 
-int	main(void)
-{
-	t_list	*result = NULL;
-	char	*str = "test";
-
-	result->content = str;
-	result->next = NULL;
-	print_result(result);
-	return (0);
-}
-
+#endif
