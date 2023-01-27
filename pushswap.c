@@ -6,25 +6,54 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:06:38 by jhesso            #+#    #+#             */
-/*   Updated: 2023/01/19 19:53:58 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/01/27 10:34:31 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	print_result(t_list *result)
-{
-	ft_printf("%s\n", result->content);
-}
+/*
+	Start:
+		We have 2 stacks a and b. when the program is launched, stack a is given as a parameter.
+		b is empty at the beginning.
 
-int	main(void)
-{
-	t_list	*result = NULL;
-	char	*str = "test";
+	Goal:
+		Sort the given stack (or list) a in ascending order.
+		The program must display the smallest list of instructions possible to sort the stack
+		a, the smallest number being at the top.
 
-	result->content = str;
-	result->next = NULL;
-	print_result(result);
+	Operations:
+		- sa (swap a): Swap the first 2 elements at the top of stack a.
+			Do nothing if there is only one or no elements.
+		- sb (swap b): Swap the first 2 elements at the top of stack b.
+			Do nothing if there is only one or no elements.
+		- ss: sa and sb at the same time.
+		- pa (push a): Take the first element at the top of b and put it at the top of a.
+			Do nothing if b is empty.
+		- pb (push b): Take the first element at the top of a and put it at the top of b.
+			Do nothing if a is empty.
+		- ra (rotate a): Shift up all elements of stack a by 1.
+			The first element becomes the last one.
+		- rb (rotate b): Shift up all elements of stack b by 1.
+			The first element becomes the last one.
+		- rr : ra and rb at the same time.
+		- rra (reverse rotate a): Shift down all elements of stack a by 1.
+			The last element becomes the first one.
+		- rrb (reverse rotate b): Shift down all elements of stack b by 1.
+			The last element becomes the first one.
+		- rrr : rra and rrb at the same time.
+
+	Error cases:
+		In case of error, the program displays "Error" followed by a \n on the standard error.
+		Example error cases: some arguments aren't integers, some arguments are bigger than an integer
+		and/or there are duplicates.
+*/
+
+int	main(char **argv, int argc)
+{
+	if (argc == 1) // incase no parameter is given, dont display anything and give the prompt back.
+		return (0);
+	// solve problem()
+	// print solution()
 	return (0);
 }
-
