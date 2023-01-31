@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:06:50 by jhesso            #+#    #+#             */
-/*   Updated: 2023/01/19 19:09:43 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/01/27 11:41:03 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include "libft/includes/libft.h"
+# include "../libft/includes/libft.h"
+
+/* validation */
+int	validate_input(char **argv);
 
 #endif

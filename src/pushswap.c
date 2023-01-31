@@ -6,11 +6,11 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:06:38 by jhesso            #+#    #+#             */
-/*   Updated: 2023/01/27 10:34:31 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/01/27 12:01:43 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "../include/pushswap.h"
 
 /*
 	Start:
@@ -49,11 +49,16 @@
 		and/or there are duplicates.
 */
 
-int	main(char **argv, int argc)
+int	main(int argc. char **argv)
 {
-	if (argc == 1) // incase no parameter is given, dont display anything and give the prompt back.
+	if (argc < 2) // incase no parameter is given, dont display anything and give the prompt back.
 		return (0);
-	// solve problem()
+	validate_input(argv); // return 1 if valid, 0 if not
+	// build stack a() return stack a
+	// is_sorted() return 1 if sorted, 0 if not
+	// get stack size() return uint stack size
+	// solve roblem()
 	// print solution()
+	// free stacks()
 	return (0);
 }
