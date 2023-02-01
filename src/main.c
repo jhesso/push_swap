@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:06:38 by jhesso            #+#    #+#             */
-/*   Updated: 2023/02/01 19:11:56 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/02/01 19:57:57 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@
 *
 *	01 02 03... are treated as 1 2 3...
 */
+// ! with the new stack functions, my initial test seems to hit an infinite function
+// ! good luck :D
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
