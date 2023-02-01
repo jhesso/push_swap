@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.c                                         :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:06:38 by jhesso            #+#    #+#             */
-/*   Updated: 2023/01/31 18:31:13 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/02/01 19:11:56 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pushswap.h"
+#include "../include/push_swap.h"
 
 /*
 	Start:
@@ -49,16 +49,37 @@
 		and/or there are duplicates.
 */
 
+/*	main()
+*	validate that the given input is correct
+*	build stack a of the given input
+*	check if the stack is already sorted
+*	sort the stack if necessary
+*	print the steps to sort the stack
+*	free stacks a and b
+*
+*	01 02 03... are treated as 1 2 3...
+*/
 int	main(int argc, char **argv)
 {
-	if (argc < 2) // incase no parameter is given, dont display anything and give the prompt back.
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+	int		stack_size;
+
+	if (argc < 2)
 		return (0);
-	validate_input(argv, argc); // return 1 if valid, 0 if not
-	// build stack a() return stack a
+	if (!input_validate(argv, argc))
+		// ! print invalid input error
+	stack_a = stack_build(argv);
+	stack_b = NULL;
+	stack_size = stack_get_size(stack_a);
+	if (stack_size != argc - 1) ;
+		// ! print error building stack
+	stack_index(stack_a, stack_size);
 	// is_sorted() return 1 if sorted, 0 if not
 	// get stack size() return uint stack size
 	// solve roblem()
 	// print solution()
-	// free stacks()
+	stack_free(&stack_a);
+	stack_free(&stack_b);
 	return (0);
 }

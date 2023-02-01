@@ -6,11 +6,11 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 11:41:58 by jhesso            #+#    #+#             */
-/*   Updated: 2023/01/31 19:34:49 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/02/01 18:20:47 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pushswap.h"
+#include "../include/push_swap.h"
 
 /*	check_duplicates()
 *	checkf if given strings are equal
@@ -32,22 +32,45 @@ static int	check_duplicates(char *s1, char *s2)
 	return (0);
 }
 
+/*	ft_iszero()
+*	check if the given string contains only zeros and possibly a sign at the front
+*	return: 1 if contains only zeros, 0 if not
+*/
+static int	ft_iszero(char *s)
+{
+	int	i;
+
+	i = 0;
+	if (s[i] == '-' || s[i] == '+')
+		i++;
+	while (s[i] && s[i] == '0')
+		i++;
+	if (s[i] != '\0')
+		return (0);
+	return (1);
+}
+
 /* validate_input()
 *	check that the input consists of only integers and nothing else
 *	No duplicates allowed
 *	return: 1 if arguments are valid, 0 if not.
 */
-// ? should 02 03 04 etc. be counted as 2 3 4... ?
-int	validate_input(char **argv, int argc)
+int	input_validate(char **argv, int argc)
 {
 	int	i;
 	int	j;
+	int	zero_count;
 
 	i = 1;
+	zero_count = 0;
 	while (argv[i])
 	{
 		j = i + 1;
 		if (!ft_isnum(argv[i]))
+			return (0);
+		if (ft_iszero(argv[i]))
+			zero_count++;
+		if (zero_count > 1)
 			return (0);
 		if (argc > 2)
 			while (argv[j])
