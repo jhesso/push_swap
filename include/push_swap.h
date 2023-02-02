@@ -39,10 +39,10 @@ t_stack	*stack_get_tail(t_stack *stack);
 int		stack_get_size(t_stack *stack);
 void	stack_add_back(t_stack *node, t_stack **stack);
 
-/* debugging functions */
-void	stack_print_values(t_stack *stack);
-
 /* general utility functions */
 void	error_print(t_stack **stack_a, t_stack **stack_b);
+
+/* debugging functions */
+void	debug_stack_print_values(t_stack *stack);
 
 #endif
