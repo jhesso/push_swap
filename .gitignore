@@ -3,3 +3,4 @@
 test.c
 checker_mac
 *debug.c
+*stack_index.c

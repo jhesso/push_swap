@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:18:25 by jhesso            #+#    #+#             */
-/*   Updated: 2023/02/01 19:53:11 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/02/02 17:38:02 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,12 @@ t_stack	*stack_build(char **argv)
 	{
 		value = ft_atoi(argv[i]);
 		if (value > INT_MAX || value < INT_MIN)
-			;// ! Print max/min int errror
+			error_print(&stack_a, NULL);
 		if (i == 1)
-			stack_new((int)value);
+			stack_a = stack_node_new((int)value);
 		else
-			stack_add_back(stack_new((int)value), &stack_a);
+			stack_add_back(stack_node_new((int)value), &stack_a);
+		i++;
 	}
 	return (stack_a);
 }
@@ -40,26 +41,25 @@ t_stack	*stack_build(char **argv)
 void	stack_index(t_stack *stack, int stack_size)
 {
 	t_stack	*stack_ptr;
-	t_stack	*highest;
-	int		value;
+	int		roof;
+	int		floor;
 
-	stack_ptr = stack;
-	value = INT_MIN;
-	highest = NULL;
-	while (--stack_size > 0)
+	roof = INT_MAX;
+	while (stack_size > 0)
 	{
-		if (stack_ptr->value == INT_MIN && stack_ptr->index == -1)
-			stack_ptr->index = 0;
-		if (stack_ptr->value > value && stack_ptr->index == -1)
+		floor = INT_MIN;
+		stack_ptr = stack;
+		while (stack_ptr)
 		{
-			value = stack_ptr->value;
-			highest = stack_ptr;
-			stack_ptr = stack;
-		}
-		else
+			if (stack_ptr->value > floor && stack_ptr->value < roof)
+			{
+				floor = stack_ptr->value;
+				stack_ptr->index = stack_size - 1;
+			}
 			stack_ptr = stack_ptr->next;
-		if (highest != NULL)
-			highest->index = stack_size;
+		}
+		roof = floor;
+		stack_size--;
 	}
 }
 

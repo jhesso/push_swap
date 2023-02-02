@@ -6,17 +6,17 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:37:01 by jhesso            #+#    #+#             */
-/*   Updated: 2023/02/01 18:54:33 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/02/02 16:02:26 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-/*	stack_new()
+/*	stack_node_new()
 *	create a new node for a stack
 *	returns the node if everything went smoothly, NULL if something went wrong
 */
-t_stack	*stack_new(int value)
+t_stack	*stack_node_new(int value)
 {
 	t_stack	*node;
 
