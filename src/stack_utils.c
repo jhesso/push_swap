@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:37:01 by jhesso            #+#    #+#             */
-/*   Updated: 2023/02/02 16:02:26 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/02/14 18:50:23 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,17 @@ int		stack_get_size(t_stack *stack)
 		size++;
 	}
 	return (size);
+}
+
+/*	stack_node_del_top()
+*	delete a node from the top of a given stack
+*	returns a pointer to the new head
+*/
+t_stack	*stack_node_del_top(t_stack *stack)
+{
+	t_stack *next;
+
+	next = stack->next;
+	free(stack);
+	return (next);
 }

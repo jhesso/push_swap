@@ -36,13 +36,19 @@ int		stack_is_sorted(t_stack *stack);
 
 /* stack utils */
 t_stack	*stack_node_new(int value);
-t_stack	*stack_get_tail(t_stack *stack);
 int		stack_get_size(t_stack *stack);
+t_stack	*stack_get_tail(t_stack *stack);
+t_stack	*stack_node_del_top(t_stack *stack);
 void	stack_add_back(t_stack *node, t_stack **stack);
 
-/* sorting */
-void	op_swap(t_stack *stack);
+/* swap */
 void	op_sa(t_stack *stack_a);
+void	op_sb(t_stack *stack_b);
+void	op_ss(t_stack *stack_a, t_stack *stack_b);
+
+/* push */
+void op_pa(t_stack **stack_a, t_stack **stack_b);
+void op_pb(t_stack **stack_b, t_stack **stack_a);
 
 /* general utility functions */
 void	error_print(t_stack **stack_a, t_stack **stack_b);
