@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:06:38 by jhesso            #+#    #+#             */
-/*   Updated: 2023/02/01 19:11:56 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/02/02 15:52:44 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,12 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	if (!input_validate(argv, argc))
-		// ! print invalid input error
+		error_print(NULL, NULL);
 	stack_a = stack_build(argv);
 	stack_b = NULL;
 	stack_size = stack_get_size(stack_a);
 	if (stack_size != argc - 1) ;
-		// ! print error building stack
+		error_print(&stack_a, &stack_b);
 	stack_index(stack_a, stack_size);
 	// is_sorted() return 1 if sorted, 0 if not
 	// get stack size() return uint stack size
