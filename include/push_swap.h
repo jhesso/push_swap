@@ -40,6 +40,10 @@ t_stack	*stack_get_tail(t_stack *stack);
 int		stack_get_size(t_stack *stack);
 void	stack_add_back(t_stack *node, t_stack **stack);
 
+/* sorting */
+void	op_swap(t_stack *stack);
+void	op_sa(t_stack *stack_a);
+
 /* general utility functions */
 void	error_print(t_stack **stack_a, t_stack **stack_b);
 

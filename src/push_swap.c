@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:42:26 by jhesso            #+#    #+#             */
-/*   Updated: 2023/02/14 13:47:42 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/02/14 14:27:16 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@
 void	push_swap(t_stack *stack_a, t_stack *stack_b, int stack_size)
 {
 	if (stack_size == 2)
-		op_swap(stack_a);
+		op_sa(stack_a);
 }
