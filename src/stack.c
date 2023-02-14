@@ -6,12 +6,16 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:18:25 by jhesso            #+#    #+#             */
-/*   Updated: 2023/02/02 17:38:02 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/02/14 13:14:06 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
+/*	stack_build()
+*	builds stack a from the given arguments
+*	returns the stack if everything went smoothly, exits the program if something fails
+*/
 t_stack	*stack_build(char **argv)
 {
 	t_stack	*stack_a;
@@ -63,6 +67,9 @@ void	stack_index(t_stack *stack, int stack_size)
 	}
 }
 
+/*	stack_free()
+*	frees the given stack and all its nodes.
+*/
 void	stack_free(t_stack **stack)
 {
 	t_stack	*tmp;
@@ -76,4 +83,26 @@ void	stack_free(t_stack **stack)
 		*stack = tmp;
 	}
 	*stack = NULL;
+}
+
+/*	stack_is_sorted()
+*	goes through the given stack and checks if its sorted properly
+*	returns: 1 if sorted, 0 if not
+*	Note to self:
+*	because we're comparing stack->index to stack->next->index, at the last index,
+*	we will always compare some index to NULL (obvious segfault)
+*	this is why we need to limit this
+*/
+int	stack_is_sorted(t_stack *stack)
+{
+	while (stack)
+	{
+		ft_printf("val: %d\n", stack->value);
+		if (stack->next == NULL)
+			return (1);
+		if (stack->index != stack->next->index - 1)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }

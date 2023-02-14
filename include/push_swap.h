@@ -32,6 +32,7 @@ int		input_validate(char **argv, int argc);
 t_stack	*stack_build(char **argv);
 void	stack_index(t_stack *stack, int	stack_size);
 void	stack_free(t_stack **stack);
+int		stack_is_sorted(t_stack *stack);
 
 /* stack utils */
 t_stack	*stack_node_new(int value);
