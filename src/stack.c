@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:18:25 by jhesso            #+#    #+#             */
-/*   Updated: 2023/02/14 13:14:06 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/02/14 13:21:29 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,6 @@ int	stack_is_sorted(t_stack *stack)
 {
 	while (stack)
 	{
-		ft_printf("val: %d\n", stack->value);
 		if (stack->next == NULL)
 			return (1);
 		if (stack->index != stack->next->index - 1)
