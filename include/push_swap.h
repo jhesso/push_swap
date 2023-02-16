@@ -50,6 +50,10 @@ void	op_ss(t_stack *stack_a, t_stack *stack_b);
 void op_pa(t_stack **stack_a, t_stack **stack_b);
 void op_pb(t_stack **stack_b, t_stack **stack_a);
 
+/* rotate */
+void	op_ra(t_stack *stack_a);
+void	op_rb(t_stack *stack_b);
+
 /* general utility functions */
 void	error_print(t_stack **stack_a, t_stack **stack_b);
 
