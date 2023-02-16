@@ -6,16 +6,16 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:49:01 by jhesso            #+#    #+#             */
-/*   Updated: 2023/02/14 18:54:52 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/02/16 11:05:42 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 /*	op_swap()
-*	swap the first two nodes
+*	swap the first two nodes of given stack
 */
-static void	op_swap(t_stack *stack)
+void	op_swap(t_stack *stack)
 {
 	int	temp;
 
