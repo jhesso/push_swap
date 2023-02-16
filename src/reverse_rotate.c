@@ -6,11 +6,30 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 11:46:23 by jhesso            #+#    #+#             */
-/*   Updated: 2023/02/16 11:52:04 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/02/16 12:16:19 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+/*	op_shift_down()
+*	shift down the first node on the given stack
+!	pretty sure this is not what I actually want now that I think of it cause this
+!	swaps the values but I just want to move the values down by one. hmmm...
+*/
+static void	op_shift_down(t_stack *stack)
+{
+	int	temp;
+
+	if (!stack || stack->next == NULL)
+		return ;
+	temp = stack->next->value;
+	stack->next->value = stack->value;
+	stack->value = temp;
+	temp = stack->next->index;
+	stack->next->index = stack->index;
+	stack->index = temp;
+}
 
 /*	op_reverse_rotate()
 *	shift down all nodes of given stack by one.
