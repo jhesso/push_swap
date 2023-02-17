@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:49:01 by jhesso            #+#    #+#             */
-/*   Updated: 2023/02/16 11:05:42 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/02/17 17:36:19 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,27 +32,27 @@ void	op_swap(t_stack *stack)
 /*	op_sa()
 *	calls op_swap() on stack_a and prints sa on stdout
 */
-void	op_sa(t_stack *stack_a)
+void	op_sa(t_stack **stack_a)
 {
-	op_swap(stack_a);
+	op_swap(*stack_a);
 	ft_printf("sa\n");
 }
 
 /*	op_sb()
 *	calls op_swap() on stack_b and prints sb on stdout
 */
-void	op_sb(t_stack *stack_b)
+void	op_sb(t_stack **stack_b)
 {
-	op_swap(stack_b);
+	op_swap(*stack_b);
 	ft_printf("sb\n");
 }
 
 /*	op_ss()
 *	calls op_swap() on both stacks and prints ss on stdout
 */
-void	op_ss(t_stack *stack_a, t_stack *stack_b)
+void	op_ss(t_stack **stack_a, t_stack **stack_b)
 {
-	op_swap(stack_a);
-	op_swap(stack_b);
+	op_swap(*stack_a);
+	op_swap(*stack_b);
 	ft_printf("ss\n");
 }

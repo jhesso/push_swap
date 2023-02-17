@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:06:38 by jhesso            #+#    #+#             */
-/*   Updated: 2023/02/14 13:45:18 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/02/17 17:37:36 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	main(int argc, char **argv)
 		stack_free(&stack_a);
 		return (0);
 	}
-	push_swap(stack_a, stack_b, stack_size);
+	push_swap(&stack_a, &stack_b, stack_size);
 	stack_free(&stack_a);
 	stack_free(&stack_b);
 	return (0);

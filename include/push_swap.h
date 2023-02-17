@@ -43,23 +43,23 @@ void	stack_add_back(t_stack *node, t_stack **stack);
 
 /* swap */
 void	op_swap(t_stack *stack);
-void	op_sa(t_stack *stack_a);
-void	op_sb(t_stack *stack_b);
-void	op_ss(t_stack *stack_a, t_stack *stack_b);
+void	op_sa(t_stack **stack_a);
+void	op_sb(t_stack **stack_b);
+void	op_ss(t_stack **stack_a, t_stack **stack_b);
 
 /* push */
 void	op_pa(t_stack **stack_a, t_stack **stack_b);
 void	op_pb(t_stack **stack_b, t_stack **stack_a);
 
 /* rotate */
-void	op_ra(t_stack *stack_a);
-void	op_rb(t_stack *stack_b);
-void	op_rr(t_stack *stack_a, t_stack *stack_b);
+void	op_ra(t_stack **stack_a);
+void	op_rb(t_stack **stack_b);
+void	op_rr(t_stack **stack_a, t_stack **stack_b);
 
 /* reverse rotate */
-void	op_rra(t_stack *stack_a);
-void	op_rrb(t_stack *stack_b);
-void	op_rrr(t_stack *stack_a, t_stack *stack_b);
+void	op_rra(t_stack **stack_a);
+void	op_rrb(t_stack **stack_b);
+void	op_rrr(t_stack **stack_a, t_stack **stack_b);
 
 /* general utility functions */
 void	error_print(t_stack **stack_a, t_stack **stack_b);
