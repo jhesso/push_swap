@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 14:45:32 by jhesso            #+#    #+#             */
-/*   Updated: 2023/02/14 19:09:52 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/02/21 18:37:01 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	op_push(t_stack **src, t_stack **dst)
 void	op_pa(t_stack **stack_a, t_stack **stack_b)
 {
 	op_push(stack_b, stack_a);
-	ft_putstr("pa\n");
+	ft_printf("pa\n");
 }
 
 /*	op_pb()
@@ -46,5 +46,5 @@ void	op_pa(t_stack **stack_a, t_stack **stack_b)
 void	op_pb(t_stack **stack_b, t_stack **stack_a)
 {
 	op_push(stack_a, stack_b);
-	ft_putstr("pb\n");
+	ft_printf("pb\n");
 }

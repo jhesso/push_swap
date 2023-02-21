@@ -41,6 +41,11 @@ t_stack	*stack_get_tail(t_stack *stack);
 t_stack	*stack_node_del_top(t_stack *stack);
 void	stack_add_back(t_stack *node, t_stack **stack);
 
+/* sorting */
+void	sort_small(t_stack **stack);
+void	sort(t_stack **stack_a, t_stack **stack_b);
+void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size);
+
 /* swap */
 void	op_swap(t_stack *stack);
 void	op_sa(t_stack **stack_a);

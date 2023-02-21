@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:06:38 by jhesso            #+#    #+#             */
-/*   Updated: 2023/02/17 17:37:36 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/02/21 20:28:48 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,10 @@ int	main(int argc, char **argv)
 		stack_free(&stack_a);
 		return (0);
 	}
+	ft_printf("calling push_swap()\n");
 	push_swap(&stack_a, &stack_b, stack_size);
+	ft_printf("stack should now be sorted.. printing..\n");
+	debug_stack_print_values(stack_a); //* print the stack a to make sure it is actually sorted
 	stack_free(&stack_a);
 	stack_free(&stack_b);
 	return (0);
