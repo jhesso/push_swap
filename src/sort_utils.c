@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/14 13:42:26 by jhesso            #+#    #+#             */
-/*   Updated: 2023/02/23 19:18:17 by jhesso           ###   ########.fr       */
+/*   Created: 2023/02/23 16:13:25 by jhesso            #+#    #+#             */
+/*   Updated: 2023/02/23 16:13:48 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-/*	push_swap()
-*	this is the "main" for the actual solving part.
-*	takes two stacks (stack_a and stack_b) and sorts the stacks in a way that
-*	stack_a contains all values in ascending order in the end
+/*	stack_find_highest_index()
+*	finds the node with the highest index on a stack
+*	returns the highest index found
 */
-void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size)
+int	find_highest_index(t_stack *stack)
 {
-	if (stack_size == 2)
-		op_sa(stack_a);
-	else if (stack_size == 3)
-		sort_three(stack_a);
-	else if (stack_size > 3)
-		sort(stack_a, stack_b);
+	int	index;
+
+	index = stack->index;
+	while (stack)
+	{
+		if (stack->index > index)
+			index = stack->index;
+		stack = stack->next;
+	}
+	return (index);
 }

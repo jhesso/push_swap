@@ -3,3 +3,5 @@
 test.c
 checker_mac
 *stack_index.c
+push_swap
+obj/

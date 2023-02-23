@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 10:39:41 by jhesso            #+#    #+#             */
-/*   Updated: 2023/02/21 20:30:12 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/02/23 18:44:40 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,14 @@
 */
 static void	op_rotate(t_stack **stack)
 {
-	while (*stack)
-	{
-		op_swap(*stack);
-		*stack = (*stack)->next;
-	}
+	t_stack	*tail;
+
+	tail = *stack;
+	while (tail->next)
+		tail = tail->next;
+	tail->next = *stack;
+	*stack = (*stack)->next;
+	tail->next->next = NULL;
 }
 
 /*	op_ra()
