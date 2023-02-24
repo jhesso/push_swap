@@ -22,6 +22,10 @@ typedef struct s_stack
 {
 	int				value;
 	int				index;
+	int				pos;
+	int				target_pos;
+	int				cost_a;
+	int				cost_b;
 	struct s_stack	*next;
 }					t_stack;
 
@@ -47,7 +51,12 @@ void	sort(t_stack **stack_a, t_stack **stack_b);
 void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size);
 
 /* sorting utilities */
+void	get_pos(t_stack **stack);
 int		find_highest_index(t_stack *stack);
+void	get_target_pos(t_stack **a, t_stack **b);
+
+/* move */
+void	get_cost(t_stack **a, t_stack **b);
 
 /* swap */
 void	op_swap(t_stack *stack);

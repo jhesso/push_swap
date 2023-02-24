@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 20:19:52 by jhesso            #+#    #+#             */
-/*   Updated: 2023/02/23 19:17:46 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/02/24 17:40:49 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,15 @@ void	sort_three(t_stack **stack)
 */
 void	sort(t_stack **stack_a, t_stack **stack_b)
 {
-	if ((*stack_a)->next->next == NULL)
+	while ((*stack_a)->next->next->next)
 	{
-		if (!stack_is_sorted(*stack_a))
-			op_sa(stack_a);
+		op_pb(stack_b, stack_a);
+		*stack_a = (*stack_a)->next;
 	}
-	else
+	sort_three(stack_a);
+	while (*stack_b)
 	{
-		//todo
-		error_print(stack_a, stack_b);
+		get_target_pos(stack_a, stack_b);
+		get_cost(stack_a, stack_b);
 	}
 }

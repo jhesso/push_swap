@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:37:01 by jhesso            #+#    #+#             */
-/*   Updated: 2023/02/14 18:50:23 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/02/24 17:36:10 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ t_stack	*stack_node_new(int value)
 		return (NULL);
 	node->value = value;
 	node->index = -1;
+	node->pos = -1;
+	node->target_pos = -1;
+	node->cost_a = -1;
+	node->cost_b = -1;
 	node->next = NULL;
 	return (node);
 }
