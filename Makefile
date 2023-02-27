@@ -6,7 +6,7 @@ OBJ_PATH	=	obj/
 SRC			=	main.c\
 				input_validate.c\
 				stack.c stack_utils.c\
-				push_swap.c sort.c sort_utils.c\
+				push_swap.c sort.c sort_utils.c move.c\
 				push.c reverse_rotate.c rotate.c swap.c\
 				utils.c\
 				debug.c
