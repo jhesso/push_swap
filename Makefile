@@ -6,7 +6,7 @@ OBJ_PATH	=	obj/
 SRC			=	main.c\
 				input_validate.c\
 				stack.c stack_utils.c\
-				push_swap.c sort.c sort_utils.c move.c\
+				push_swap.c sort.c sort_utils.c move.c cost.c\
 				push.c reverse_rotate.c rotate.c swap.c\
 				utils.c\
 				debug.c
@@ -26,6 +26,9 @@ $(OBJ_PATH):
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -L. -lft
 
+debug: $(OBJ_PATH) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -L. -lft -g
+
 clean:
 	/bin/rm -rf $(OBJ_PATH)
 
@@ -34,4 +37,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re debug

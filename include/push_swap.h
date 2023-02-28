@@ -55,8 +55,10 @@ void	get_pos(t_stack **stack);
 int		find_highest_index(t_stack *stack);
 void	get_target_pos(t_stack **a, t_stack **b);
 
-/* move */
+/* cost */
 void	get_cost(t_stack **a, t_stack **b);
+void	do_cheapest_move(t_stack **a, t_stack **b);
+void	move(t_stack **a, t_stack **b, int cost_a, int cost_b);
 
 /* swap */
 void	op_swap(t_stack *stack);
