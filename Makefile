@@ -27,7 +27,7 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -L. -lft
 
 debug: $(OBJ_PATH) $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -L. -lft -g
+	$(CC) $(CFLAGS) $(OBJS) -L. -lft -g
 
 clean:
 	/bin/rm -rf $(OBJ_PATH)

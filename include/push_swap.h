@@ -85,5 +85,6 @@ void	error_print(t_stack **stack_a, t_stack **stack_b);
 
 /* debugging functions */
 void	debug_stack_print_values(t_stack *stack);
+void	debug_node_print_content(t_stack *node);
 
 #endif
