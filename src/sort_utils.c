@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 16:13:25 by jhesso            #+#    #+#             */
-/*   Updated: 2023/02/24 17:28:36 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/02 17:02:27 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,24 @@ int	find_highest_index(t_stack *stack)
 	while (stack)
 	{
 		if (stack->index > index)
+			index = stack->index;
+		stack = stack->next;
+	}
+	return (index);
+}
+
+/*	find_lowest_index()
+*	finds the node with the lowest index on a stack
+*	returns the highest index found
+*/
+int	find_lowest_index(t_stack *stack)
+{
+	int	index;
+
+	index = stack->index;
+	while (stack)
+	{
+		if (stack->index < index)
 			index = stack->index;
 		stack = stack->next;
 	}

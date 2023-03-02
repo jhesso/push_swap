@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:06:38 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/02 12:28:58 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/02 18:32:27 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	main(int argc, char **argv)
 		error_print(NULL, NULL);
 	stack_a = stack_build(argv);
 	stack_b = NULL;
+	ft_printf("stack_a initialied\n");
 	stack_size = stack_get_size(stack_a);
 	if (stack_size != argc - 1)
 		error_print(&stack_a, &stack_b);
