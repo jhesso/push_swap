@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:18:25 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/01 14:31:49 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/02 12:28:07 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,12 @@ t_stack	*stack_build(char **argv)
 	while (argv[i])
 	{
 		value = ft_atoi(argv[i]);
-		ft_printf("value: %d\n", value);
 		if (value > INT_MAX || value < INT_MIN)
 			error_print(&stack_a, NULL);
 		if (i == 1)
-		{
 			stack_a = stack_node_new((int)value);
-			debug_stack_print_values(stack_a);
-		}
 		else
-		{
-			ft_printf("creating other elements\n");
 			stack_add_back(stack_node_new((int)value), &stack_a);
-			debug_stack_print_values(stack_a);
-		}
 		i++;
 	}
 	return (stack_a);

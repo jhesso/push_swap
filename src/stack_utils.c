@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:37:01 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/01 14:55:04 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/02 12:27:14 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ t_stack	*stack_node_new(int value)
 {
 	t_stack	*node;
 
-	ft_printf("arrived to stack_node_new with value: %d\n", value);
-	node = malloc(sizeof(node));
+	node = malloc(sizeof * node);
 	if (node == NULL)
 		return (NULL);
 	node->value = value;
@@ -31,7 +30,6 @@ t_stack	*stack_node_new(int value)
 	node->cost_a = -1;
 	node->cost_b = -1;
 	node->next = NULL;
-	debug_node_print_content(node);
 	return (node);
 }
 

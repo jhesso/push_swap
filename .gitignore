@@ -8,3 +8,4 @@ obj/
 *test2.c
 .vscode
 a.out.dSYM
+test/
