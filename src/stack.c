@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:18:25 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/02 12:28:07 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/03 11:05:12 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,19 @@
 *	builds stack a from the given arguments
 *	returns the stack if everything went smoothly, exits the program if something fails
 */
-t_stack	*stack_build(char **argv)
+t_stack	*stack_build(char **input)
 {
 	t_stack	*stack_a;
 	long	value;
-	int		i;
 
-	i = 1;
 	stack_a = NULL;
-	while (argv[i])
+	while (*input)
 	{
-		value = ft_atoi(argv[i]);
+		value = ft_atoi(*input);
 		if (value > INT_MAX || value < INT_MIN)
 			error_print(&stack_a, NULL);
-		if (i == 1)
-			stack_a = stack_node_new((int)value);
-		else
-			stack_add_back(stack_node_new((int)value), &stack_a);
-		i++;
+		stack_add_back(stack_node_new((int)value), &stack_a);
+		input++;
 	}
 	return (stack_a);
 }
