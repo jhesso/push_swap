@@ -3,3 +3,9 @@
 test.c
 checker_mac
 *stack_index.c
+push_swap
+obj/
+*test2.c
+.vscode
+a.out.dSYM
+test/

@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 11:41:58 by jhesso            #+#    #+#             */
-/*   Updated: 2023/02/01 18:20:47 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/02/28 16:53:37 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,23 @@ static int	ft_iszero(char *s)
 		return (0);
 	return (1);
 }
+
+/*	string_input()
+*	if given a string of numbers as input
+*	go through the string and save the numbers
+*	into a 2d arr of strings using ft_split
+*	then do all of the normal checks for input
+*/
+// static	char	**string_input(char **argv)
+// {
+// 	char	**input;
+
+// 	input = ft_split(argv[1], ' ');
+// 	//todo	count how many strings we have
+// 	//todo	do the normal valid checks on the strings
+// 	//?	maybe do all this inside the input_validate? do we have enough room?
+// 	return (input);
+// }
 
 /* validate_input()
 *	check that the input consists of only integers and nothing else

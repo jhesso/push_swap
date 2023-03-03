@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:37:01 by jhesso            #+#    #+#             */
-/*   Updated: 2023/02/02 16:02:26 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/02 18:35:32 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,15 @@ t_stack	*stack_node_new(int value)
 {
 	t_stack	*node;
 
-	node = malloc(sizeof(node));
+	node = malloc(sizeof * node);
 	if (node == NULL)
 		return (NULL);
 	node->value = value;
 	node->index = -1;
+	node->pos = -1;
+	node->target_pos = -1;
+	node->cost_a = -1;
+	node->cost_b = -1;
 	node->next = NULL;
 	return (node);
 }
@@ -74,4 +78,17 @@ int		stack_get_size(t_stack *stack)
 		size++;
 	}
 	return (size);
+}
+
+/*	stack_node_del_top()
+*	delete a node from the top of a given stack
+*	returns a pointer to the new head
+*/
+t_stack	*stack_node_del_top(t_stack *stack)
+{
+	t_stack *next;
+
+	next = stack->next;
+	free(stack);
+	return (next);
 }

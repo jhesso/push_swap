@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/02 15:40:56 by jhesso            #+#    #+#             */
-/*   Updated: 2023/02/28 19:54:07 by jhesso           ###   ########.fr       */
+/*   Created: 2023/02/14 13:42:26 by jhesso            #+#    #+#             */
+/*   Updated: 2023/02/23 19:18:17 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-/*	error_print()
-*	frees stacks a and b, prints Error\n on stderr and exits with code 1
+/*	push_swap()
+*	this is the "main" for the actual solving part.
+*	takes two stacks (stack_a and stack_b) and sorts the stacks in a way that
+*	stack_a contains all values in ascending order in the end
 */
-void	error_print(t_stack **stack_a, t_stack **stack_b)
+void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size)
 {
-	// if leaks, this might work
-	if (stack_a == NULL || stack_a != NULL)
-		stack_free(stack_a);
-	if (stack_b == NULL || stack_b != NULL)
-		stack_free(stack_b);
-	// stack_free(stack_a);
-	// stack_free(stack_b);
-	ft_putstr_fd("Error\n", 2);
-	exit (1);
+	if (stack_size == 2)
+		op_sa(stack_a);
+	else if (stack_size == 3)
+		sort_three(stack_a);
+	else if (stack_size > 3)
+		sort(stack_a, stack_b);
 }
