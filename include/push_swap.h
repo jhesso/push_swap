@@ -30,7 +30,7 @@ typedef struct s_stack
 }					t_stack;
 
 /* validation */
-int		input_validate(char **argv, int argc);
+char	**input_validate(char **argv, int argc);
 
 /* stack initialization */
 t_stack	*stack_build(char **argv);
@@ -83,9 +83,12 @@ void	op_rrr(t_stack **stack_a, t_stack **stack_b);
 
 /* general utility functions */
 void	error_print(t_stack **stack_a, t_stack **stack_b);
+char	**allocate_str(char**argv, int argc);
 
 /* debugging functions */
 void	debug_stack_print_values(t_stack *stack);
 void	debug_node_print_content(t_stack *node);
+void	debug_input_print(char **input);
+void	free_input(char **input);
 
 #endif
