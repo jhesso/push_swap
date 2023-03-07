@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 20:19:52 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/02 17:22:28 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/07 17:49:01 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,9 @@ void	sort_three(t_stack **stack)
 		op_sa(stack);
 }
 
-/*	stack_get_lowest_index_pos
+/*	stack_get_lowest_index_pos()
+*	find the node with the lowest index from the given stack
+*	returns the position of the node with the lowest index
 */
 static int	stack_get_lowest_index_pos(t_stack **stack)
 {
@@ -50,7 +52,7 @@ static int	stack_get_lowest_index_pos(t_stack **stack)
 	return (lowest_pos);
 }
 
-/*	stack_shift
+/*	stack_shift()
 *	after the bulk of the stack is sorted, shifts stack a until lowest
 *	value is at the top. If it is in the bottomhalf, reverse rotate, else rotate
 */
@@ -79,7 +81,7 @@ static void	stack_shift(t_stack **a)
 	}
 }
 
-/*	push_all_but_three
+/*	push_all_but_three()
 *	pushes all elements of stack a into b, except for the last three.
 *	push the smaller values first, and then the larger values to help
 *	with sorting efficiency
@@ -112,12 +114,8 @@ static void	push_all_but_three(t_stack **a, t_stack **b)
 }
 
 /*	sort()
-*	sort the stacks by implementing a version of quicksort
-*	we choose the first index as a "pivot" and then we iterate through the whole
-*	list, pushing every node with an index lower than the pivot to stack b
-*	then we recursively sort the stacks using the same method until both stacks
-*	are sorted. then we simply push everything from stack b onto a and our
-*	stack a is properly sorted.
+*	sorts stack a in ascending order by utilizing the sort_three function
+*	and calculating the most cost effective way to sort the rest.
 */
 void	sort(t_stack **stack_a, t_stack **stack_b)
 {

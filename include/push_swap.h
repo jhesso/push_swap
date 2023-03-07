@@ -49,6 +49,7 @@ void	stack_add_back(t_stack *node, t_stack **stack);
 void	sort_three(t_stack **stack);
 void	sort(t_stack **stack_a, t_stack **stack_b);
 void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size);
+void	sort_five(t_stack **a, t_stack **b);
 
 /* sorting utilities */
 void	get_pos(t_stack **stack);

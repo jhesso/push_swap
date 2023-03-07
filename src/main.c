@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:06:38 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/07 16:11:42 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/07 17:43:30 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 *	sort the stack if necessary
 *	print the steps to sort the stack
 *	free stacks a and b
-*
-*	01 02 03... are treated as 1 2 3...
 */
 int	main(int argc, char **argv)
 {
