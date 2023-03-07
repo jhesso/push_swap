@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 16:13:25 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/02 17:02:27 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/07 18:19:38 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ static int	target(t_stack **a, int index_b, int index_target, int target_pos)
 /*	get_target_pos()
 *	Assign a target position in stack a to each element of stack a
 *	the target position is the spot the element in b needs to get to in order to
-*	be sorted correctly. This positiion will be used to calculate the cost of
+*	be sorted correctly. This position will be used to calculate the cost of
 *	moving each element to its target position in stack a.
 */
 void	get_target_pos(t_stack **a, t_stack **b)
