@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:06:38 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/03 08:38:23 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/07 16:11:42 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,15 @@ int	main(int argc, char **argv)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	int		stack_size;
+	char	**input;
 
 	if (argc < 2)
 		return (0);
-	if (!input_validate(argv, argc))
-		error_print(NULL, NULL);
-	stack_a = stack_build(argv);
+	input = input_validate(argv, argc);
+	stack_a = stack_build(input);
+	free_input(input);
 	stack_b = NULL;
 	stack_size = stack_get_size(stack_a);
-	if (stack_size != argc - 1)
-		error_print(&stack_a, &stack_b);
 	stack_index(stack_a, stack_size);
 	if (stack_is_sorted(stack_a))
 	{
@@ -44,7 +43,6 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	push_swap(&stack_a, &stack_b, stack_size);
-	debug_stack_print_values(stack_a);
 	stack_free(&stack_a);
 	stack_free(&stack_b);
 	return (0);

@@ -1,66 +1,10 @@
-what happened to stack_a 2nd nodes cost_a?
-it was -1 when creating it but somewhere afterwards
-it changed to -16777168!?
+ building the string thingy
 
-and then for the third element
-when printing content of the created node
-cost_a was -1 but somehow when calling
-debug_node_print_content() it changed to -16764627
-and printed that out
+with ./push_swap "1 2 3"
+after building stack_a, a contains only 2 and 3. we just completely
+skipped 1
+missing 1 found :D fixed and removed some unnecessary logic from stack
+building, fixed the issue and removed a couple lines of code so win win
 
-then when returning from stack_node_new()
-now second nodes cost_a is 3?!
-
-then in stack_add_back()->stack_get_tail() the while
-loop results in bad access and we crash
-
-so... what happens to cost_a for both, second and
-third node??
-why is my a stack's last elements next not NULL
-anymore and we crash on the stack_get_tail()'s
-while loop
-
-2nd try:
-creating first elem:
-first element created succesfully. all values correct
-after printing node content in stack_node_new
-first nodes cost_a now wrong
-
-so now the first node already has incorrect value on
-cost_a
-
-creating second elem:
-node created succesfully. all values correct initially
-after printing node content, values remained the same
-
-arriving to stack_add_back():
-node is all correct so far
-stack_a first node cost_a is still wrong, otherwise
-all good.
-
-returning from stack_add_back():
-the new node was correctly added to the back of the
-stack_a
-after printing stack_a with debug_stack_print_values()
-second nodes cost_a is now wrong!?
-
-creating third elem:
-initially all values correct
-after printing node->value, cost_a changed to -65485
-after printing node->target_pos, cost_a changed again
-after printing node->cost_a, cost_a, cost_b and
-next all changed. now next is not NULL anymore
-and both costs are random positive values
-now after getting tail in stack_add_back()
-stack_a's first elem's cost_a and cost_b is wrong
-(random positive integers)
-second node all values are 0 (idk if the ad
-dress of first
-nodes next changed or if the second nodes
-values changed)
-third node still contains same garbage values for
-cost_a, cost_b and next (next points to 0x37 for some reason)
-thats why we crash in debug_stack_print_values()
-we print all three nodes (node 2 has wrong value and index)
-and after printing the third node we dont exit the loop
-because node3->next is not NULL, its 0x37
+with ./push_swap 1 2 3
+we just segfault because the string building doesnt work perfectly

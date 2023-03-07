@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 11:41:58 by jhesso            #+#    #+#             */
-/*   Updated: 2023/02/28 16:53:37 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/07 16:11:20 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ static int	check_duplicates(char *s1, char *s2)
 }
 
 /*	ft_iszero()
-*	check if the given string contains only zeros and possibly a sign at the front
+*	check if the given string contains only zeros
+*	and possibly a sign at the front
 *	return: 1 if contains only zeros, 0 if not
 */
 static int	ft_iszero(char *s)
@@ -50,53 +51,96 @@ static int	ft_iszero(char *s)
 	return (1);
 }
 
-/*	string_input()
-*	if given a string of numbers as input
-*	go through the string and save the numbers
-*	into a 2d arr of strings using ft_split
-*	then do all of the normal checks for input
-*/
-// static	char	**string_input(char **argv)
-// {
-// 	char	**input;
-
-// 	input = ft_split(argv[1], ' ');
-// 	//todo	count how many strings we have
-// 	//todo	do the normal valid checks on the strings
-// 	//?	maybe do all this inside the input_validate? do we have enough room?
-// 	return (input);
-// }
-
-/* validate_input()
+/* validate()
 *	check that the input consists of only integers and nothing else
 *	No duplicates allowed
 *	return: 1 if arguments are valid, 0 if not.
 */
-int	input_validate(char **argv, int argc)
+static int	validate(char **input, int argc)
 {
-	int	i;
-	int	j;
-	int	zero_count;
+	int		i;
+	int		j;
+	int		zero_count;
 
-	i = 1;
 	zero_count = 0;
-	while (argv[i])
+	i = 0;
+	while (input[i])
 	{
 		j = i + 1;
-		if (!ft_isnum(argv[i]))
+		if (!ft_isnum(input[i]))
 			return (0);
-		if (ft_iszero(argv[i]))
+		if (ft_iszero(input[i]))
 			zero_count++;
 		if (zero_count > 1)
 			return (0);
 		if (argc > 2)
-			while (argv[j])
+			while (input[j])
 			{
-				if (!check_duplicates(argv[i], argv[j]))
+				if (!check_duplicates(input[i], input[j]))
 					return (0);
 				j++;
 			}
 		i++;
 	}
 	return (1);
+}
+
+/*	build_input_str()
+*	build input string from argv
+*/
+static char	**build_input_str(char **argv, int argc)
+{
+	char	**input;
+	int		i;
+	int		j;
+	int		c;
+
+	input = allocate_str(argv, argc);
+	i = 1;
+	j = 0;
+	while (argv[i])
+	{
+		c = 0;
+		while (argv[i][c] != '\0')
+		{
+			input[j][c] = argv[i][c];
+			c++;
+		}
+		i++;
+		j++;
+	}
+	return (input);
+}
+
+/*	input_validate()
+*	validates that the given parameters are valid push_swap parameters
+*	returns the input string if parameters are valid
+*	prints error on stderr and exits if something is wrong
+*/
+char	**input_validate(char **argv, int argc)
+{
+	char	**input;
+	int		num_count;
+
+	num_count = 0;
+	if (argc == 2)
+	{
+		input = ft_split(argv[1], ' ');
+		if (!input)
+			error_print(NULL, NULL);
+		while (input[num_count])
+			num_count++;
+		if (!validate(input, num_count))
+			error_print(NULL, NULL);
+		return (input);
+	}
+	else
+	{
+		input = build_input_str(argv, argc);
+		if (!input)
+			error_print(NULL, NULL);
+		if (!validate(input, argc))
+			error_print(NULL, NULL);
+		return (input);
+	}
 }
