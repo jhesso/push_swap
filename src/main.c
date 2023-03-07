@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:06:38 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/03 11:31:19 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/07 16:11:42 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	input = input_validate(argv, argc);
-	debug_input_print(input);
 	stack_a = stack_build(input);
 	free_input(input);
 	stack_b = NULL;
@@ -44,7 +43,6 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	push_swap(&stack_a, &stack_b, stack_size);
-	debug_stack_print_values(stack_a);
 	stack_free(&stack_a);
 	stack_free(&stack_b);
 	return (0);

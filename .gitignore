@@ -10,3 +10,6 @@ obj/
 a.out.dSYM
 test/
 push_swap.dSYM
+*example.c
+checker
+push_swap_tester

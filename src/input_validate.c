@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 11:41:58 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/03 11:15:31 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/07 16:11:20 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,7 +137,6 @@ char	**input_validate(char **argv, int argc)
 	else
 	{
 		input = build_input_str(argv, argc);
-		debug_input_print(input);
 		if (!input)
 			error_print(NULL, NULL);
 		if (!validate(input, argc))
