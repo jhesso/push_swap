@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:37:01 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/02 18:35:32 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/08 19:57:02 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ t_stack	*stack_get_tail(t_stack *stack)
 }
 
 /*	stack_add_back()
-*	create a new node for the given stack and add it to the back/bottom of the stack
+*	create a new node for the given stack
+*	and add it to the back/bottom of the stack
 */
 void	stack_add_back(t_stack *node, t_stack **stack)
 {
@@ -65,7 +66,7 @@ void	stack_add_back(t_stack *node, t_stack **stack)
 /* stack_get_size()
 *	returns the number of nodes on a stack
 */
-int		stack_get_size(t_stack *stack)
+int	stack_get_size(t_stack *stack)
 {
 	int	size;
 
@@ -86,7 +87,7 @@ int		stack_get_size(t_stack *stack)
 */
 t_stack	*stack_node_del_top(t_stack *stack)
 {
-	t_stack *next;
+	t_stack	*next;
 
 	next = stack->next;
 	free(stack);

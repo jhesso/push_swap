@@ -6,12 +6,11 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 20:19:52 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/07 17:49:01 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/08 17:17:10 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
 
 /*	sort_three()
 *	sort a stack of 3 numbers in 2 or fewer moves

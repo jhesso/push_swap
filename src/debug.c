@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 19:39:50 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/03 10:52:22 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/08 17:16:23 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,10 @@
 
 void	debug_stack_print_values(t_stack *stack)
 {
-	int	nb;
-
-	nb = 0;
 	while (stack != NULL)
 	{
-		ft_printf("node: %d value: %d index: %d\n", nb, stack->value, stack->index);
+		debug_node_print_content(stack);
 		stack = stack->next;
-		nb++;
 	}
 }
 

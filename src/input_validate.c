@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 11:41:58 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/08 15:29:32 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/08 17:15:57 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,11 @@ static int	ft_iszero(char *s)
 *	No duplicates allowed
 *	return: 1 if arguments are valid, 0 if not.
 */
-static int	validate(char **input, int argc)
+static int	validate(char **input, int argc, int i, int j)
 {
-	int		i;
-	int		j;
 	int		zero_count;
 
 	zero_count = 0;
-	i = 0;
 	while (input[i])
 	{
 		j = i + 1;
@@ -74,12 +71,14 @@ static int	validate(char **input, int argc)
 		if (zero_count > 1)
 			return (0);
 		if (argc > 2)
+		{
 			while (input[j])
 			{
 				if (!check_duplicates(input[i], input[j]))
 					return (0);
 				j++;
 			}
+		}
 		i++;
 	}
 	return (1);
@@ -130,7 +129,7 @@ char	**input_validate(char **argv, int argc)
 			error_print(NULL, NULL);
 		while (input[num_count])
 			num_count++;
-		if (!validate(input, num_count))
+		if (!validate(input, num_count, 0, 0))
 			error_print(NULL, NULL);
 		return (input);
 	}
@@ -139,7 +138,7 @@ char	**input_validate(char **argv, int argc)
 		input = build_input_str(argv, argc);
 		if (!input)
 			error_print(NULL, NULL);
-		if (!validate(input, argc))
+		if (!validate(input, argc, 0, 0))
 			error_print(NULL, NULL);
 		return (input);
 	}

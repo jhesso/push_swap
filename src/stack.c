@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:18:25 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/03 11:05:12 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/08 17:17:34 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 /*	stack_build()
 *	builds stack a from the given arguments
-*	returns the stack if everything went smoothly, exits the program if something fails
+*	returns the stack if everything went smoothly,
+*	exits the program if something fails
 */
 t_stack	*stack_build(char **input)
 {
