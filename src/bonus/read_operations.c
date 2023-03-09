@@ -6,11 +6,11 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 15:22:19 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/09 17:51:22 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/09 18:04:50 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "../../include/checker.h"
 
 static t_operations	*node_create(char *line)
 {

@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 15:05:45 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/09 17:47:24 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/09 18:04:38 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <fcntl.h>
-# include "../../include/push_swap.h"
+# include "push_swap.h"
 
 typedef struct s_operations
 {

@@ -6,11 +6,11 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 15:05:16 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/09 17:44:48 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/09 18:03:50 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "../../include/checker.h"
 
 int	main(int argc, char **argv)
 {
