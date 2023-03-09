@@ -27,7 +27,7 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -L. -lft
 
 debug:
-	$(CC) $(CFLAGS) $(SRCS) -L. -lft -g -o $(NAME) -fsanitize=address
+	$(CC) $(CFLAGS) $(SRCS) -L. -lft -g -o $(NAME)
 
 clean:
 	/bin/rm -rf $(OBJ_PATH)
