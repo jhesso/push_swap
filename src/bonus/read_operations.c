@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 15:22:19 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/09 18:04:50 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/10 17:10:25 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,17 +51,17 @@ t_operations	*read_operations(void)
 {
 	t_operations	*operations;
 	char			*line;
-	int				fd;
+	// int				fd;
 
-	fd = open("/dev/fd/1", O_RDONLY);
-	if (fd == -1)
-		error_print(NULL, NULL);
-	line = get_next_line(fd);
+	// fd = open("/dev/fd/1", O_RDONLY);
+	// if (fd == -1)
+		// error_print(NULL, NULL);
+	line = get_next_line(STDOUT_FILENO);
 	while (line)
 	{
 		ft_printf("looping\n");
 		operations_add_back(node_create(line), &operations);
-		line = get_next_line(fd);
+		line = get_next_line(STDOUT_FILENO);
 	}
 	return (operations);
 }
