@@ -29,6 +29,9 @@ $(NAME): $(OBJS)
 debug:
 	$(CC) $(CFLAGS) $(SRCS) -L. -lft -g -o $(NAME)
 
+leaks:
+	$(CC) $(CFLAGS) $(SRCS) -L. -lft -o $(NAME) -fsanitize=address
+
 clean:
 	/bin/rm -rf $(OBJ_PATH)
 
