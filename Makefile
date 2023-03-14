@@ -44,7 +44,7 @@ debug:
 	$(CC) $(CFLAGS) $(SRCS) -L. -lft -g -o $(NAME)
 
 leaks:
-	$(CC) $(CFLAGS) $(SRCS) -L. -lft -o $(NAME) -fsanitize=address
+	$(CC) $(CFLAGS) $(SRCS) -L. -lft -o $(NAME) -g -fsanitize=address
 
 bonus_debug:
 	$(CC) $(CFLAGS) $(SRCS) -L. -lft -o $(BONUS_NAME) -g

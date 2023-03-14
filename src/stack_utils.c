@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:37:01 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/08 19:57:02 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/14 18:47:59 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	stack_add_back(t_stack *node, t_stack **stack)
 	t_stack	*tail;
 
 	if (node == NULL)
-		return ;
+		error_print(stack, NULL);
 	if (*stack == NULL)
 	{
 		*stack = node;
