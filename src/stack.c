@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:18:25 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/14 17:25:56 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/14 18:58:14 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ t_stack	*stack_build(char **input)
 	while (*input)
 	{
 		value = ft_atoi(*input);
-		if ((value < 0 && *input[0] != '-') || (value > 0 && *input[0] == '-')\
-			|| (value == 0 && *input[0] != '0') || (value == -1 &&\
+		if ((value < 0 && *input[0] != '-') || (value > 0 && *input[0] == '-') \
+			|| (value == 0 && *input[0] != '0') || (value == -1 && \
 			*input[0] != '-'))
 			error_print(&stack_a, NULL);
 		if (value > INT_MAX || value < INT_MIN)
