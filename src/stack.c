@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:18:25 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/10 21:18:14 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/14 17:25:56 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,41 @@ t_stack	*stack_build(char **input)
 	while (*input)
 	{
 		value = ft_atoi(*input);
+		if ((value < 0 && *input[0] != '-') || (value > 0 && *input[0] == '-')\
+			|| (value == 0 && *input[0] != '0') || (value == -1 &&\
+			*input[0] != '-'))
+			error_print(&stack_a, NULL);
 		if (value > INT_MAX || value < INT_MIN)
 			error_print(&stack_a, NULL);
 		stack_add_back(stack_node_new((int)value), &stack_a);
 		input++;
 	}
 	return (stack_a);
+}
+
+/*	check_limits()
+*	checks if the stack contains INT_MAX or INT_MIN
+*	and assigns the index correctly on those
+*/
+static int	check_limits(t_stack **stack, int size)
+{
+	t_stack	*tmp;
+	int		flag;
+
+	tmp = *stack;
+	flag = 0;
+	while (tmp)
+	{
+		if (tmp->value == INT_MIN)
+			tmp->index = 0;
+		else if (tmp->value == INT_MAX)
+		{
+			tmp->index = size - 1;
+			flag = 1;
+		}
+		tmp = tmp->next;
+	}
+	return (flag);
 }
 
 /*	stack_index()
@@ -45,6 +74,8 @@ void	stack_index(t_stack *stack, int stack_size)
 	int		floor;
 
 	roof = INT_MAX;
+	if (check_limits(&stack, stack_size))
+		stack_size--;
 	while (stack_size > 0)
 	{
 		floor = INT_MIN;
