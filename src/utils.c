@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:40:56 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/14 18:14:44 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/15 17:03:40 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	free_input(char **input)
 {
 	int		i;
 
-	if (input == NULL || *input == NULL)
+	if (input == NULL)
 		return ;
 	i = 0;
 	while (input[i])
