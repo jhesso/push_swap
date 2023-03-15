@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 15:05:45 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/09 17:47:24 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/14 19:00:50 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <fcntl.h>
-# include "../../include/push_swap.h"
+# include "push_swap.h"
 
 typedef struct s_operations
 {
@@ -26,5 +26,7 @@ typedef struct s_operations
 }						t_operations;
 
 t_operations	*read_operations(void);
+void			checker_error_print(t_stack **a, t_stack **b, \
+									t_operations **operations);
 
 #endif

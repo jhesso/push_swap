@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:40:56 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/08 19:57:55 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/15 17:03:40 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,13 @@ char	**allocate_str(char**argv, int argc)
 	input[argc -1] = NULL;
 	while (i < argc)
 	{
-		input[j] = ft_calloc(ft_strlen(argv[i]), sizeof(char));
+		input[j] = ft_calloc(ft_strlen(argv[i]) + 1, sizeof(char));
 		if (!input[j])
+		{
+			if (input)
+				free(input);
 			error_print(NULL, NULL);
+		}
 		j++;
 		i++;
 	}
@@ -59,7 +63,7 @@ void	free_input(char **input)
 {
 	int		i;
 
-	if (input == NULL || *input == NULL)
+	if (input == NULL)
 		return ;
 	i = 0;
 	while (input[i])

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                         :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:06:50 by jhesso            #+#    #+#             */
-/*   Updated: 2023/02/01 18:12:17 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/14 19:02:23 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSHSWAP_H
-# define PUSHSWAP_H
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -34,7 +34,7 @@ char	**input_validate(char **argv, int argc);
 
 /* stack initialization */
 t_stack	*stack_build(char **argv);
-void	stack_index(t_stack *stack, int	stack_size);
+void	stack_index(t_stack *stack, int stack_size);
 void	stack_free(t_stack **stack);
 int		stack_is_sorted(t_stack *stack);
 

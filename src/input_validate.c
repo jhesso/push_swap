@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 11:41:58 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/08 17:15:57 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/15 17:08:33 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,17 @@ static int	check_duplicates(char *s1, char *s2)
 		s1++;
 	if (*s2 == '+')
 		s2++;
-	while (*s1 != '\0' || *s2 != '\0')
+	while (*s1 != '\0' && *s2 != '\0')
 	{
 		if (*s1 != *s2)
 			return (1);
 		s1++;
 		s2++;
 	}
-	return (0);
+	if (*s1 == '\0' && *s2 == '\0')
+		return (0);
+	else
+		return (1);
 }
 
 /*	ft_iszero()
