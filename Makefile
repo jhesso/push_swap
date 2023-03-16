@@ -1,8 +1,20 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/03/16 16:28:20 by jhesso            #+#    #+#              #
+#    Updated: 2023/03/16 16:41:18 by jhesso           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME			=	push_swap
-BONUS_NAME		=	checker
 CC				=	cc
 CFLAGS			=	-Wall -Wextra -Werror
 SRC_PATH		=	src/
+LIBFT_PATH		=	libft/
 OBJ_PATH		=	obj/
 SRC				=	main.c\
 					input_validate.c\
@@ -11,54 +23,49 @@ SRC				=	main.c\
 					push.c reverse_rotate.c rotate.c swap.c\
 					utils.c\
 					debug.c
-BONUS			=	bonus/main_bonus.c\
-					bonus/read_operations_bonus.c\
-					input_validate.c\
-					stack.c stack_utils.c\
-					utils.c
 SRCS			=	$(addprefix $(SRC_PATH), $(SRC))
 OBJ				=	$(SRC:.c=.o)
 OBJS			=	$(addprefix $(OBJ_PATH), $(OBJ))
-BONUS_OBJ		=	$(BONUS: .c=.o)
-BONUS_OBJS		=	$(addprefix $(OBJ_PATH), $(BONUS_OBJ))
-INCS			=	-I ./include/
-BONUSES			=	$(addprefix $(SRC_PATH), $(BONUS))
+INCS			=	-I include/
 
-all: $(OBJ_PATH) $(NAME)
+# pretty colors for the messages
+GREEN			=	\033[0;32m
+BLUE			=	\033[0;34m
+RESET			=	\033[0m
+
+all: libft $(OBJ_PATH) $(NAME)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
-	$(CC) $(CFLAGS) -c $< -o $@ $(INCS)
+	@$(CC) $(CFLAGS) -c $< -o $@ $(INCS)
 
 $(OBJ_PATH):
-	mkdir $(OBJ_PATH)
+	@mkdir $(OBJ_PATH)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -L. -lft
+	@echo "$(BLUE)Compiling $(NAME)$(RESET)"
+	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -L$(LIBFT_PATH) -lft
+	@echo "$(GREEN)done$(RESET)"
 
-bonus: $(BONUS_NAME)
-
-$(BONUS_NAME):
-	$(CC) $(CFLAGS) $(BONUSES) -o $(BONUS_NAME) -L. -lft
+libft:
+	@$(MAKE) -C $(LIBFT_PATH)
 
 debug:
-	$(CC) $(CFLAGS) $(SRCS) -L. -lft -g -o $(NAME)
-
-leaks:
-	$(CC) $(CFLAGS) $(SRCS) -L. -lft -o $(NAME) -g -fsanitize=address
-
-bonus_debug:
-	$(CC) $(CFLAGS) $(SRCS) -L. -lft -o $(BONUS_NAME) -g
-
-bonus_leaks:
-	$(CC) $(CFLAGS) $(BONUSES) -L. -lft -o $(BONUS_NAME) -fsanitize=address
+	@echo "$(BLUE)Compiling $(NAME) for debugging$(RESET)"
+	@$(CC) $(CFLAGS) $(SRCS) -L. -lft -o $(NAME) -g -fsanitize=address
+	@echo "$(GREEN)done$(RESET)"
 
 clean:
-	/bin/rm -rf $(OBJ_PATH)
+	@echo "$(BLUE)doing some spring cleaning$(RESET)"
+	@/bin/rm -rf $(OBJ_PATH)
+	@$(MAKE) clean -C $(LIBFT_PATH)
+	@echo "$(GREEN)done$(RESET)"
 
 fclean: clean
-	/bin/rm -f $(NAME)
-	/bin/rm -f $(BONUS_NAME)
+	@echo "$(BLUE)removing $(NAME)$(RESET)"
+	@/bin/rm -f $(NAME)
+	@$(MAKE) fclean -C $(LIBFT_PATH)
+	@echo "$(GREEN)done$(RESET)"
 
 re: fclean all
 
-.PHONY: all clean fclean re debug leaks bonus
+.PHONY: all clean fclean re debug libft
