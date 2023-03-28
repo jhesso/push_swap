@@ -6,11 +6,12 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 17:03:54 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/16 19:05:47 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/17 19:21:04 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/checker.h"
+#include <fcntl.h>
 
 static char	**alloc_operations(char **operations)
 {
@@ -18,19 +19,12 @@ static char	**alloc_operations(char **operations)
 	int		i;
 
 	i = 0;
-	if (!operations)
-	{
-		operations = malloc(sizeof(char *));
-		if (!operations)
-			checker_error(NULL, NULL, NULL);
-		operations[0]=  NULL;
-	}
-	while (operations[i] != NULL)
+	while (operations[i])
 		i++;
-	temp = malloc(sizeof(char *) * i + 1);
+	temp = malloc(sizeof(char *) * (i + 1));
 	if (!temp)
 		checker_error(operations, NULL, NULL);
-	temp[i - 1] = NULL;
+	temp[i] = NULL;
 	i = 0;
 	while (operations[i])
 	{
@@ -38,13 +32,14 @@ static char	**alloc_operations(char **operations)
 		i++;
 	}
 	free (operations);
-	operations = malloc(sizeof(char *) * i + 1);
+	operations = malloc(sizeof(char *) * (i + 2));
 	if (!operations)
 	{
 		free_input(temp);
 		checker_error(NULL, NULL, NULL);
 	}
-	operations[i] = NULL;
+	ft_printf("i: %d\n",i);
+	operations[i + 1] = NULL;
 	i = 0;
 	while (temp[i])
 	{
@@ -60,6 +55,22 @@ static char	**get_line(char **line)
 	return (line);
 }
 
+void	write_to_file(char **operations)
+{
+	int	i;
+	int	fd;
+
+	i = 0;
+	fd = open("test", O_WRONLY | O_APPEND | O_CREAT);
+	if (fd == -1)
+		exit(-1);
+	while (operations[i])
+	{
+		ft_putstr_fd(operations[i], fd);
+		i++;
+	}
+}
+
 char	**get_operations(void)
 {
 	char	**operations;
@@ -70,14 +81,24 @@ char	**get_operations(void)
 	line = malloc(sizeof(char *) * 2);
 	if (!line)
 		checker_error(NULL, NULL, NULL);
-	// get_line(line);
 	line[1] = NULL;
-	// ft_printf("%s\n", line[0]);
 	while (get_line(line))
 	{
-		operations = alloc_operations(operations);
-		operations[i] = line[0];
+		if (i > 0)
+		{
+			operations = alloc_operations(operations);
+			operations[i] = line[0];
+		}
+		else
+		{
+			operations = malloc(sizeof(char *) * 2);
+			if (!operations)
+				checker_error(NULL, NULL, NULL);
+			operations[0] = line[0];
+			operations[1] = NULL;
+		}
 		debug_input_print(operations);
+		write_to_file(operations);
 		i++;
 	}
 	return (operations);

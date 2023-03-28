@@ -15,3 +15,6 @@ push_swap_tester
 push_swap_tester_better
 test.sh
 test_file*
+*test
+src/checker/checker
+*.dSYM
