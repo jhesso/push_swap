@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 19:39:50 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/16 18:40:25 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/29 15:07:10 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ void	debug_input_print(char **input)
 {
 	while (*input)
 	{
-		ft_printf("%s\n", *input);
+		ft_printf("%s", *input);
 		input++;
 	}
+	ft_printf("----------------\n");
 }

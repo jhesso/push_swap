@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 17:03:54 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/17 19:21:04 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/29 15:35:26 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ static char	**alloc_operations(char **operations)
 		free_input(temp);
 		checker_error(NULL, NULL, NULL);
 	}
-	ft_printf("i: %d\n",i);
 	operations[i + 1] = NULL;
 	i = 0;
 	while (temp[i])
@@ -98,7 +97,6 @@ char	**get_operations(void)
 			operations[1] = NULL;
 		}
 		debug_input_print(operations);
-		write_to_file(operations);
 		i++;
 	}
 	return (operations);
