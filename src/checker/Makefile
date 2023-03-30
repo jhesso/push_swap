@@ -6,7 +6,7 @@
 #    By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/16 18:13:23 by jhesso            #+#    #+#              #
-#    Updated: 2023/03/30 04:06:58 by jhesso           ###   ########.fr        #
+#    Updated: 2023/03/30 14:24:36 by jhesso           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,10 @@ CFLAGS		=	-Wall -Wextra -Werror
 SRC_PATH	=	src/
 LIBFT_PATH	=	../../libft/
 OBJ_PATH	=	obj/
-SRC			=	checker.c operations.c utils.c stack.c stack_utils.c debug.c\
-				input_validate.c main.c operations_validate.c push.c\
-				reverse_rotate.c rotate.c swap.c
+SRC			=	checker_bonus.c operations_bonus.c utils_bonus.c stack_bonus.c\
+				stack_utils_bonus.c debug_bonus.c input_validate_bonus.c\
+				main_bonus.c operations_validate_bonus.c push_bonus.c\
+				reverse_rotate_bonus.c rotate_bonus.c swap_bonus.c
 SRCS		=	$(addprefix $(SRC_PATH), $(SRC))
 OBJ			=	$(SRC:.c=.o)
 OBJS		=	$(addprefix $(OBJ_PATH), $(OBJ))
