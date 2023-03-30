@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 15:39:42 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/30 20:26:33 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/30 21:28:12 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	execute_op(t_stack **a, t_stack **b)
 	while (op)
 	{
 		do_operation(op, a, b);
+		free(op);
 		op = get_next_line(STDIN_FILENO);
 	}
 }

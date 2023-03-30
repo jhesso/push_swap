@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 15:33:18 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/30 20:49:34 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/30 21:27:32 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,7 @@ int	main(int ac, char **av)
 	stack_index(a, stack_get_size(a));
 	execute_op(&a, &b);
 	check_if_sorted(a, b);
+	stack_free(&a);
+	stack_free(&b);
 	return (0);
 }
