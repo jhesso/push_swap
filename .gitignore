@@ -11,8 +11,11 @@ a.out.dSYM
 test/
 push_swap.dSYM
 *example.c
-checker
 push_swap_tester
 push_swap_tester_better
 test.sh
 test_file*
+*test
+src/checker/checker
+*.dSYM
+checker

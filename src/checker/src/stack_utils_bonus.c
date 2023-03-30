@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   stack_utils_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:37:01 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/30 15:08:55 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/30 15:56:03 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../includes/checker.h"
 
 /*	stack_node_new()
 *	create a new node for a stack
@@ -45,14 +45,15 @@ t_stack	*stack_get_tail(t_stack *stack)
 }
 
 /*	stack_add_back()
-*	add given node to the back/bottom of the given stack
+*	create a new node for the given stack
+*	and add it to the back/bottom of the stack
 */
 void	stack_add_back(t_stack *node, t_stack **stack)
 {
 	t_stack	*tail;
 
 	if (node == NULL)
-		error_print(stack, NULL);
+		checker_error(NULL, stack);
 	if (*stack == NULL)
 	{
 		*stack = node;
