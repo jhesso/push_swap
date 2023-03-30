@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   operations_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 17:03:54 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/30 03:22:02 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/30 04:22:09 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ char	**get_operations(void)
 			operations[0] = line[0];
 			operations[1] = NULL;
 		}
-		debug_input_print(operations);
 		i++;
 	}
 	return (operations);

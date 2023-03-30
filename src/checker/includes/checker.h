@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 17:05:45 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/30 04:11:07 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/30 04:23:32 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
-#include <fcntl.h>
+# include <fcntl.h>
 # include "../../../libft/includes/libft.h"
 
 typedef struct s_stack
