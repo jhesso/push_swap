@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 19:39:50 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/29 15:07:10 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/30 03:20:12 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,20 @@ void	debug_input_print(char **input)
 		input++;
 	}
 	ft_printf("----------------\n");
+}
+
+void	write_to_file(char **operations)
+{
+	int	i;
+	int	fd;
+
+	i = 0;
+	fd = open("test", O_WRONLY | O_APPEND | O_CREAT);
+	if (fd == -1)
+		exit(-1);
+	while (operations[i])
+	{
+		ft_putstr_fd(operations[i], fd);
+		i++;
+	}
 }

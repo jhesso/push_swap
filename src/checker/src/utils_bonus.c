@@ -6,11 +6,11 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 17:14:58 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/16 18:45:57 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/30 04:17:52 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/checker.h"
+#include "../../../include/push_swap.h"
 
 /*	checker_error()
 *	frees operations, stacks a and b, prints Error\n on stderr\

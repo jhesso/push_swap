@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 11:41:58 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/16 18:43:59 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/30 04:16:27 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,20 +129,20 @@ char	**input_validate(char **argv, int argc)
 	{
 		input = ft_split(argv[1], ' ');
 		if (!input)
-			error_print(NULL, NULL);
+			checker_error(NULL, NULL, NULL);
 		while (input[num_count])
 			num_count++;
 		if (!validate(input, num_count, 0, 0))
-			error_print(NULL, NULL);
+			checker_error(NULL, NULL, NULL);
 		return (input);
 	}
 	else
 	{
 		input = build_input_str(argv, argc);
 		if (!input)
-			error_print(NULL, NULL);
+			checker_error(NULL, NULL, NULL);
 		if (!validate(input, argc, 0, 0))
-			error_print(NULL, NULL);
+			checker_error(NULL, NULL, NULL);
 		return (input);
 	}
 }
