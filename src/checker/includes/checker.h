@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 15:33:50 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/30 18:17:56 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/30 20:20:02 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,11 @@ void	op_sb(t_stack **b);
 void	op_ss(t_stack **a, t_stack **b);
 void	op_pa(t_stack **stack_a, t_stack **stack_b);
 void	op_pb(t_stack **stack_b, t_stack **stack_a);
-void	op_ra(t_stack **stack_a);
-void	op_rb(t_stack **stack_b);
-void	op_rr(t_stack **stack_a, t_stack **stack_b);
-void	op_rra(t_stack **stack_a);
-void	op_rrb(t_stack **stack_b);
-void	op_rrr(t_stack **stack_a, t_stack **stack_b);
+int		op_ra(t_stack **stack_a);
+int		op_rb(t_stack **stack_b);
+int		op_rr(t_stack **stack_a, t_stack **stack_b);
+int		op_rra(t_stack **stack_a);
+int		op_rrb(t_stack **stack_b);
+int		op_rrr(t_stack **stack_a, t_stack **stack_b);
 
 #endif

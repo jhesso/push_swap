@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*   reverse_rotate_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 11:46:23 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/30 04:17:25 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/30 20:49:24 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/push_swap.h"
+#include "../includes/checker.h"
 
 /*	stack_get_second_last()
 *	find the second to last node on the stack
@@ -18,6 +18,8 @@
 */
 static t_stack	*stack_get_second_last(t_stack *stack)
 {
+	if (stack->next == NULL)
+		return (NULL);
 	while (stack->next->next != NULL)
 		stack = stack->next;
 	return (stack);
@@ -36,6 +38,8 @@ static void	op_reverse_rotate(t_stack **stack)
 	tail = stack_get_tail(*stack);
 	temp = *stack;
 	tail_new = stack_get_second_last(*stack);
+	if (tail_new == NULL)
+		return ;
 	*stack = tail;
 	(*stack)->next = temp;
 	tail_new->next = NULL;
@@ -46,9 +50,12 @@ static void	op_reverse_rotate(t_stack **stack)
 *	the last node becomes the first one
 *	print rra on stdout
 */
-void	op_rra(t_stack **stack_a)
+int	op_rra(t_stack **stack_a)
 {
+	if (!*stack_a)
+		return (0);
 	op_reverse_rotate(stack_a);
+	return (1);
 }
 
 /*	op_rrb()
@@ -56,9 +63,12 @@ void	op_rra(t_stack **stack_a)
 *	the last node becomes the first one
 *	print rrb on stdout
 */
-void	op_rrb(t_stack **stack_b)
+int	op_rrb(t_stack **stack_b)
 {
+	if (!*stack_b)
+		return (0);
 	op_reverse_rotate(stack_b);
+	return (1);
 }
 
 /*	op_rrr
@@ -66,8 +76,11 @@ void	op_rrb(t_stack **stack_b)
 *	the last node becomes the first one
 *	print rrr on stdout
 */
-void	op_rrr(t_stack **stack_a, t_stack **stack_b)
+int	op_rrr(t_stack **stack_a, t_stack **stack_b)
 {
+	if (!*stack_a || !*stack_b)
+		return (0);
 	op_reverse_rotate(stack_a);
 	op_reverse_rotate(stack_b);
+	return (1);
 }

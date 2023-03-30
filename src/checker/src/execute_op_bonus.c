@@ -6,11 +6,32 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 15:39:42 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/30 15:51:08 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/30 20:26:33 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/checker.h"
+
+static void	do_rotates(char *op, t_stack **a, t_stack **b)
+{
+	int	fail;
+
+	fail = 0;
+	if (!ft_strcmp(op, "ra\n"))
+		fail = op_ra(a);
+	else if (!ft_strcmp(op, "rb\n"))
+		fail = op_rb(b);
+	else if (!ft_strcmp(op, "rr\n"))
+		fail = op_rr(a, b);
+	else if (!ft_strcmp(op, "rra\n"))
+		fail = op_rra(a);
+	else if (!ft_strcmp(op, "rrb\n"))
+		fail = op_rrb(b);
+	else if (!ft_strcmp(op, "rrr\n"))
+		fail = op_rrr(a, b);
+	if (fail == 0)
+		checker_error(a, b);
+}
 
 void	do_operation(char *op, t_stack **a, t_stack **b)
 {
@@ -24,20 +45,8 @@ void	do_operation(char *op, t_stack **a, t_stack **b)
 		op_pa(a, b);
 	else if (!ft_strcmp(op, "pb\n"))
 		op_pb(b, a);
-	else if (!ft_strcmp(op, "ra\n"))
-		op_ra(a);
-	else if (!ft_strcmp(op, "rb\n"))
-		op_rb(b);
-	else if (!ft_strcmp(op, "rr\n"))
-		op_rr(a, b);
-	else if (!ft_strcmp(op, "rra\n"))
-		op_rra(a);
-	else if (!ft_strcmp(op, "rrb\n"))
-		op_rrb(b);
-	else if (!ft_strcmp(op, "rrr\n"))
-		op_rrr(a, b);
 	else
-		checker_error(a, b);
+		do_rotates(op, a, b);
 }
 
 void	execute_op(t_stack **a, t_stack **b)
