@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 17:14:58 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/30 04:17:52 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/30 15:48:53 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@
 *	frees operations, stacks a and b, prints Error\n on stderr\
 *	and exits with code 1
 */
-void	checker_error(char **operations, t_stack **a, t_stack **b)
+void	checker_error(t_stack **a, t_stack **b)
 {
-	if (operations)
-		free_input(operations);
 	if (a)
 		stack_free(a);
 	if (b)
@@ -42,7 +40,7 @@ char	**allocate_str(char**argv, int argc)
 	j = 0;
 	input = malloc(sizeof(char *) * argc);
 	if (!input)
-		checker_error(NULL, NULL, NULL);
+		checker_error(NULL, NULL);
 	input[argc -1] = NULL;
 	while (i < argc)
 	{
@@ -51,7 +49,7 @@ char	**allocate_str(char**argv, int argc)
 		{
 			if (input)
 				free(input);
-			checker_error(NULL, NULL, NULL);
+			checker_error(NULL, NULL);
 		}
 		j++;
 		i++;

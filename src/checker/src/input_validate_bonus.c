@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_validate.c                                   :+:      :+:    :+:   */
+/*   input_validate_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 11:41:58 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/30 04:16:27 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/30 15:54:32 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,20 +129,20 @@ char	**input_validate(char **argv, int argc)
 	{
 		input = ft_split(argv[1], ' ');
 		if (!input)
-			checker_error(NULL, NULL, NULL);
+			checker_error(NULL, NULL);
 		while (input[num_count])
 			num_count++;
 		if (!validate(input, num_count, 0, 0))
-			checker_error(NULL, NULL, NULL);
+			checker_error(NULL, NULL);
 		return (input);
 	}
 	else
 	{
 		input = build_input_str(argv, argc);
 		if (!input)
-			checker_error(NULL, NULL, NULL);
+			checker_error(NULL, NULL);
 		if (!validate(input, argc, 0, 0))
-			checker_error(NULL, NULL, NULL);
+			checker_error(NULL, NULL);
 		return (input);
 	}
 }

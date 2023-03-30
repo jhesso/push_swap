@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/16 17:05:45 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/30 04:23:32 by jhesso           ###   ########.fr       */
+/*   Created: 2023/03/30 15:33:50 by jhesso            #+#    #+#             */
+/*   Updated: 2023/03/30 18:17:56 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,11 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
-/* checker.c */
-void	checker(t_stack *a, t_stack *b, char **operations);
-
-/* operations.c */
-char	**get_operations(void);
-
-/* operations_validate.c */
-int		operations_validate(char **operations);
+/* execute_operations.c */
+void	execute_op(t_stack **a, t_stack **b);
 
 /* utils.c */
-void	checker_error(char **operations, t_stack **a, t_stack **b);
+void	checker_error(t_stack **a, t_stack **b);
 char	**allocate_str(char **argv, int argc);
 void	free_input(char **input);
 

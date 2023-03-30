@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.c                                            :+:      :+:    :+:   */
+/*   stack_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:18:25 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/16 18:47:21 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/30 15:55:48 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ t_stack	*stack_build(char **input)
 		if ((value < 0 && *input[0] != '-') || (value > 0 && *input[0] == '-') \
 			|| (value == 0 && *input[0] != '0') || (value == -1 && \
 			*input[0] != '-'))
-			checker_error(NULL, &stack_a, NULL);
+			checker_error(NULL, &stack_a);
 		if (value > INT_MAX || value < INT_MIN)
-			checker_error(NULL, &stack_a, NULL);
+			checker_error(NULL, &stack_a);
 		stack_add_back(stack_node_new((int)value), &stack_a);
 		input++;
 	}

@@ -6,7 +6,7 @@
 /*   By: jhesso <jhesso@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:37:01 by jhesso            #+#    #+#             */
-/*   Updated: 2023/03/14 18:47:59 by jhesso           ###   ########.fr       */
+/*   Updated: 2023/03/30 15:08:55 by jhesso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,7 @@ t_stack	*stack_get_tail(t_stack *stack)
 }
 
 /*	stack_add_back()
-*	create a new node for the given stack
-*	and add it to the back/bottom of the stack
+*	add given node to the back/bottom of the given stack
 */
 void	stack_add_back(t_stack *node, t_stack **stack)
 {
